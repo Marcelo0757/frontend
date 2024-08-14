@@ -8,10 +8,10 @@ public class Addition // public = método de exportação de classe adição ...
    {
       
       String firstNumber = // "String" é declaração de variável "secondNumber" é o nome da variável - o comando "=" é um operador de atribuição
-         JOptionPane.showInputDialog("Enter first integer"); // JOptionPane "padrão Pascal Case" é componente de um modelo da biblioteca java.  o "." ponto é operador de invocação - 
+         JOptionPane.showInputDialog("Enter first integer"); //  entre com o primeiro número // JOptionPane "padrão Pascal Case" é componente de um modelo da biblioteca java.  o "." ponto é operador de invocação - 
       //showInputDialog = exibindo uma caixa de dialogo com entrada de dados - Parenteses é colocado para mostrar parametros - tudo que estiver dentro de parenteses e parametros 
       String secondNumber = // linha de comando para inserir o segundo número
-         JOptionPane.showInputDialog("Enter second integer"); // é um componente de um modelo da biblioteca java - o ponto e vírgula serva para finalizar a linha de código  
+         JOptionPane.showInputDialog("Enter second integer"); // entre com o segundo número // é um componente de um modelo da biblioteca java - o ponto e vírgula serva para finalizar a linha de código  
 
       // converte texto inserido em valores para que seja feito o cálculo
       int number1 = Integer.parseInt(firstNumber); // é uma declaração de variável do primeiro número - "int" qual é o tipo da variável - "Integer" = componente 
