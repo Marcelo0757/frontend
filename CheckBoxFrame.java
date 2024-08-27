@@ -61,7 +61,7 @@ public class CheckBoxFrame extends JFrame // a classe tem o mesmo nome do arquiv
 
          textField.setFont(font); 
 
-            font = new Font("Serif", Font.PLAIN, 14);
+            
          if (underlineCheckBox.isSelected()) {
             font = textField.getFont();
             Map attributes = font. getAttributes();
