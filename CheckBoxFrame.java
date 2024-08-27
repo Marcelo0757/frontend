@@ -47,7 +47,7 @@ public class CheckBoxFrame extends JFrame // a classe tem o mesmo nome do arquiv
    {
       // respond to checkbox events
       @Override // sobrescrito esse metodo 
-      public void itemStateChanged(ItemEvent event) // publico sem retorno do tipo itemevent 
+      public void itemStateChanged(ItemEvent event) // publico sem retorno do tipo item event 
       {
          Font font = null; // stores the new Font
 
@@ -58,7 +58,9 @@ public class CheckBoxFrame extends JFrame // a classe tem o mesmo nome do arquiv
             font = new Font("Serif", Font.BOLD, 14);
          else if (italicJCheckBox.isSelected())
             font = new Font("Serif", Font.ITALIC, 14);
-         else
+
+         textField.setFont(font); 
+
             font = new Font("Serif", Font.PLAIN, 14);
          if (underlineCheckBox.isSelected()) {
             font = textField.getFont();
@@ -68,7 +70,7 @@ public class CheckBoxFrame extends JFrame // a classe tem o mesmo nome do arquiv
             font = new Font(attributes);
          }
 
-         textField.setFont(font); 
+         
       } 
    }
 } // end class CheckBoxFrame
