@@ -4,7 +4,6 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import javafx.scene.text.Text;
 import javax.swing.JCheckBox;
 import java.awt.font.*;
 import java.util.*;
@@ -12,10 +11,10 @@ import java.util.*;
 public class CheckBoxFrame extends JFrame // a classe tem o mesmo nome do arquivo - 
 
 {
-   private final JCheckBox underlineCheckBox;
-   private final JTextField textField; // displays text in changing fonts
-   private final JCheckBox boldJCheckBox; // to select/deselect bold
-   private final JCheckBox italicJCheckBox; // to select/deselect italic
+   private final JCheckBox underlineCheckBox; // = final privado JCheckBox sublinhadoCheckBox
+   private final JTextField textField; // displays text in changing fonts = exibe texto em mudança de fontes
+   private final JCheckBox boldJCheckBox; // to select/deselect bold = para selecionar/desmarcar negrito
+   private final JCheckBox italicJCheckBox; // to select/deselect italic = para selecionar/desmarcar italic
 
    // CheckBoxFrame constructor adds JCheckBoxes to JFrame
    public CheckBoxFrame()
@@ -23,38 +22,38 @@ public class CheckBoxFrame extends JFrame // a classe tem o mesmo nome do arquiv
       super("JCheckBox Test"); // o texto que aparece no título 
       setLayout(new FlowLayout()); // metodo que configura o layout - um novo flowlayout mais responsivo - estamos enviando
 
-      // set up JTextField and set its font
+      // set up JTextField and set its font = configure JTextField e defina sua fonte
       textField = new JTextField("Watch the font style change", 20);
       textField.setFont(new Font("Serif", Font.PLAIN, 14));
       add(textField); // add textField to JFrame  - uma declaraçao de variavel - esta invocando o definidor de fonte, 
 
       boldJCheckBox = new JCheckBox("Bold"); 
       italicJCheckBox = new JCheckBox("Italic"); 
-      add(boldJCheckBox); // add bold checkbox to JFrame
-      add(italicJCheckBox); // add italic checkbox to JFrame
+      add(boldJCheckBox); // add bold checkbox to JFrame = adicione caixa de seleção em negrito ao JFrame
+      add(italicJCheckBox); // add italic checkbox to JFrame = adicione caixa de seleção italic ao JFrame
       underlineCheckBox = new JCheckBox("Underline");
-      add(underlineCheckBox);
+      add(underlineCheckBox); // adicionar underline no checkbox
 
-      // register listeners for JCheckBoxes
-      CheckBoxHandler handler = new CheckBoxHandler();
+      // register listeners for JCheckBoxes = registrar ouvintes para JCheckBoxes
+      CheckBoxHandler handler = new CheckBoxHandler(); // = Manipulador CheckBoxHandler = novo CheckBoxHandler
       boldJCheckBox.addItemListener(handler); // está invocando o bold que vai adicionar um novo objeto - clicou invocando esse metodo 
       italicJCheckBox.addItemListener(handler); // os dois objetos foram adicionados no escutador de eventos - 
-      underlineCheckBox.addItemListener(handler);
+      underlineCheckBox.addItemListener(handler); // sublinhar caixa de seleção adicionar manipulador de ouvinte de item
    } 
 
-   // private inner class for ItemListener event handling
+   // classe interna privada para manipulação de eventos ItemListener
    private class CheckBoxHandler implements ItemListener  
    {
-      // respond to checkbox events
+      // responder para o evento checkbox
       @Override // sobrescrito esse metodo 
       public void itemStateChanged(ItemEvent event) // publico sem retorno do tipo item event 
       {
-         Font font = null; // stores the new Font
+         Font font = null; // armazena a nova fonte
 
-         // determine which CheckBoxes are checked and create Font
+         // determinar quais CheckBoxes estão marcadas e criar Font
          if (boldJCheckBox.isSelected() && italicJCheckBox.isSelected()) // validador - invocando o metodo isSelect - se o boldcheckbox estiver selecionado ele ira processar esse if 
             font = new Font("Serif", Font.BOLD + Font.ITALIC, 14); // nova fonte com negrito e italico juntos
-         else if (boldJCheckBox.isSelected())
+         else if (boldJCheckBox.isSelected()) // negrito CheckBox está selecionado
             font = new Font("Serif", Font.BOLD, 14);
          else if (italicJCheckBox.isSelected())
             font = new Font("Serif", Font.ITALIC, 14);
@@ -62,12 +61,12 @@ public class CheckBoxFrame extends JFrame // a classe tem o mesmo nome do arquiv
          textField.setFont(font); 
 
             
-         if (underlineCheckBox.isSelected()) {
-            font = textField.getFont();
-            Map attributes = font. getAttributes();
-            attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-            textField.setFont(font.deriveFont(attributes));
-            font = new Font(attributes);
+         if (underlineCheckBox.isSelected()) { // sublinhado CheckBox está selecionado
+            font = textField.getFont(); // fonte texto Campo obter fonte
+            Map attributes = font. getAttributes(); // Atributos do mapa fonte obter atributos
+            attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); // atributos colocar Atributo de texto UNDERLINE Atributo de texto UNDERLINE ON)
+            textField.setFont(font.deriveFont(attributes)); // texto Conjunto de campos Fonte derivação de fonte Atributos de fonte
+            font = new Font(attributes); // fonte novos atributos de fonte
          }
 
          
@@ -75,17 +74,3 @@ public class CheckBoxFrame extends JFrame // a classe tem o mesmo nome do arquiv
    }
 } // end class CheckBoxFrame
 
-/**************************************************************************
- * (C) Copyright 1992-2014 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
